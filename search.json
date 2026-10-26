@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "analyses/running-times.html",
+    "href": "analyses/running-times.html",
+    "title": "Where the Subway Runs Behind Schedule",
+    "section": "",
+    "text": "This analysis is in progress. Findings below are placeholders."
+  },
+  {
+    "objectID": "analyses/running-times.html#what-the-data-shows",
+    "href": "analyses/running-times.html#what-the-data-shows",
+    "title": "Where the Subway Runs Behind Schedule",
+    "section": "What the data shows",
+    "text": "What the data shows\nLead paragraph: the finding, in plain language, with the one number that matters."
+  },
+  {
+    "objectID": "analyses/running-times.html#the-map",
+    "href": "analyses/running-times.html#the-map",
+    "title": "Where the Subway Runs Behind Schedule",
+    "section": "The map",
+    "text": "The map\nMap of stop paths, colored by how far actual running time drifts from schedule."
+  },
+  {
+    "objectID": "analyses/running-times.html#how-its-changed-since-2019",
+    "href": "analyses/running-times.html#how-its-changed-since-2019",
+    "title": "Where the Subway Runs Behind Schedule",
+    "section": "How it’s changed since 2019",
+    "text": "How it’s changed since 2019\nSupporting chart(s)."
+  },
+  {
+    "objectID": "analyses/running-times.html#method-and-limitations",
+    "href": "analyses/running-times.html#method-and-limitations",
+    "title": "Where the Subway Runs Behind Schedule",
+    "section": "Method and limitations",
+    "text": "Method and limitations\n\nData: MTA Subway End-to-End Running Times: Beginning 2019, January 2019 – September 2026, and the MTA’s static subway GTFS feed for line geometry.\nCode: github.com/connortolany/transit-portfolio\nLast built October 26, 2026."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Subway, Measured",
+    "section": "",
+    "text": "Where the Subway Runs Behind Schedule\n\n\nSystemwide actual vs. scheduled running times for every subway line since 2019. In progress.\n\n\n\n\n\nNo matching items"
+  }
+]
