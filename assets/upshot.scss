@@ -1,0 +1,105 @@
+/*-- scss:defaults --*/
+
+// Upshot-style: serif body and headlines, sans for everything around the story.
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+$font-family-serif: "Source Serif 4", Georgia, serif;
+$font-family-sans-serif: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+$font-family-base: $font-family-serif;
+$headings-font-family: $font-family-serif;
+$headings-font-weight: 700;
+
+$font-size-root: 18px;
+$line-height-base: 1.6;
+
+$body-color: #121212;
+$body-bg: #ffffff;
+$link-color: #326891;           // muted newsroom blue
+$text-muted: #666666;
+$border-color: #e2e2e2;
+
+$navbar-bg: #ffffff;
+$navbar-fg: #121212;
+$navbar-hl: #326891;
+$footer-bg: #ffffff;
+$footer-fg: #666666;
+
+/*-- scss:rules --*/
+
+// Sans-serif for the frame: nav, captions, labels, metadata.
+.navbar, .nav-footer, .figure-caption, figcaption, .quarto-title-meta,
+.listing-description, .listing-categories, .kicker, .dek, .note,
+table, .caption, .sourceCode {
+  font-family: $font-family-sans-serif;
+}
+
+.navbar {
+  border-bottom: 1px solid $border-color;
+  .navbar-title { font-family: $font-family-serif; font-weight: 700; letter-spacing: -0.01em; }
+  .nav-link { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+}
+
+// Headline + dek (the one-line summary under the headline).
+h1.title, .quarto-title h1 {
+  font-size: 2.4rem;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.5rem;
+}
+.quarto-title .subtitle, .dek {
+  font-family: $font-family-serif;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #333;
+  font-weight: 400;
+}
+// `description` is for the home-page card; the dek (subtitle) does that job on the page.
+.quarto-title-block .description { display: none; }
+
+.kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $text-muted;
+  margin-bottom: 0.4rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-top: 2.5rem;
+  border-bottom: none;
+}
+
+figcaption, .figure-caption {
+  font-size: 0.8rem;
+  color: $text-muted;
+  margin-top: 0.4rem;
+}
+
+// Small sans notes (methodology, sources).
+.note {
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+// "In progress" banner.
+.callout.wip {
+  font-family: $font-family-sans-serif;
+  font-size: 0.85rem;
+}
+
+// Home page cards: clean, no shadows.
+.quarto-listing .card {
+  border: none;
+  border-top: 1px solid #121212;
+  border-radius: 0;
+  box-shadow: none;
+  padding-top: 0.75rem;
+  .card-body { padding-left: 0; padding-right: 0; }
+  .card-title { font-family: $font-family-serif; font-weight: 700; font-size: 1.3rem; }
+  .card-text  { font-family: $font-family-serif; }
+}
+
+.nav-footer { border-top: 1px solid $border-color; font-size: 0.8rem; }

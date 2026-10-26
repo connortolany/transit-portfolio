@@ -1,0 +1,15 @@
+{
+  "hash": "1e75276a144ab927d45ae22f32c89c83",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Where the Subway Runs Behind Schedule\"\nsubtitle: \"Headline finding goes here, in one plain sentence.\"\ndescription: \"Systemwide actual vs. scheduled running times for every subway line since 2019. In progress.\"\ndate: 2026-10-26\nengine: knitr\n---\n\n::: {.callout-note .wip appearance=\"simple\"}\nThis analysis is in progress. Findings below are placeholders.\n:::\n\n<!--\nPage structure, top to bottom:\n1. Headline finding: one or two plain sentences (also goes in `subtitle` above).\n2. Main visual: the map of stop paths colored by drift from schedule.\n3. Two or three supporting charts.\n4. Method and limitations.\n5. Link to the code.\n-->\n\n## What the data shows\n\nLead paragraph: the finding, in plain language, with the one number that matters.\n\n## The map\n\nMap of stop paths, colored by how far actual running time drifts from schedule.\n\n## How it's changed since 2019\n\nSupporting chart(s).\n\n## Method and limitations\n\n::: {.note}\nData: [MTA Subway End-to-End Running Times: Beginning 2019](https://data.ny.gov/Transportation/MTA-Subway-End-to-End-Running-Times-Beginning-2019/sp9g-mzjh), January 2019 – September 2026, and the MTA's static subway GTFS feed for line geometry.\n\nCode: [github.com/connortolany/transit-portfolio](https://github.com/connortolany/transit-portfolio)\n\n*Last built October 26, 2026.*\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

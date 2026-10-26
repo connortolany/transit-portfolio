@@ -1,0 +1,42 @@
+---
+title: "Where the Subway Runs Behind Schedule"
+subtitle: "Headline finding goes here, in one plain sentence."
+description: "Systemwide actual vs. scheduled running times for every subway line since 2019. In progress."
+date: 2026-10-26
+engine: knitr
+---
+
+::: {.callout-note .wip appearance="simple"}
+This analysis is in progress. Findings below are placeholders.
+:::
+
+<!--
+Page structure, top to bottom:
+1. Headline finding: one or two plain sentences (also goes in `subtitle` above).
+2. Main visual: the map of stop paths colored by drift from schedule.
+3. Two or three supporting charts.
+4. Method and limitations.
+5. Link to the code.
+-->
+
+## What the data shows
+
+Lead paragraph: the finding, in plain language, with the one number that matters.
+
+## The map
+
+Map of stop paths, colored by how far actual running time drifts from schedule.
+
+## How it's changed since 2019
+
+Supporting chart(s).
+
+## Method and limitations
+
+::: {.note}
+Data: [MTA Subway End-to-End Running Times: Beginning 2019](https://data.ny.gov/Transportation/MTA-Subway-End-to-End-Running-Times-Beginning-2019/sp9g-mzjh), January 2019 – September 2026, and the MTA's static subway GTFS feed for line geometry.
+
+Code: [github.com/connortolany/transit-portfolio](https://github.com/connortolany/transit-portfolio)
+
+*Last built `r format(Sys.Date(), "%B %d, %Y")`.*
+:::

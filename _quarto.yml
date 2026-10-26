@@ -1,0 +1,46 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - analyses/*.qmd
+
+website:
+  title: "Subway, Measured"
+  site-url: https://connortolany.github.io/transit-portfolio/
+  repo-url: https://github.com/connortolany/transit-portfolio
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: analyses/running-times.qmd
+        text: Running times
+    right:
+      - icon: github
+        href: https://github.com/connortolany/transit-portfolio
+        aria-label: Code on GitHub
+  page-footer:
+    left: "Connor Tolany"
+    right: "Data: MTA open data and GTFS"
+
+format:
+  html:
+    theme: [default, assets/upshot.scss]
+    toc: false
+    smooth-scroll: true
+    grid:
+      body-width: 640px
+      margin-width: 260px
+    fig-align: left
+    fig-width: 8
+    fig-height: 5
+    fig-dpi: 200
+    link-external-newwindow: true
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  # Re-run a page's R code only when that page changes.
+  # Commit the _freeze/ folder so renders stay fast and reproducible.
+  freeze: auto

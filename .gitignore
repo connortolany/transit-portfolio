@@ -1,0 +1,15 @@
+# Data stays out of git; the pipeline recreates it.
+data/
+
+# Rendered site (published to the gh-pages branch, not main)
+_site/
+/.quarto/
+**/*.quarto_ipynb
+
+# R / RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+.DS_Store
