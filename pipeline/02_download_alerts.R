@@ -7,9 +7,12 @@
 #   https://subwaydata.nyc/data/subwaydatanyc_YYYY-MM-DD_gtfsrt.tar.xz
 # Each daily archive (~30-60 MB) holds every feed; we keep only the alerts feed.
 #
-# Thinning: the archive has an alerts snapshot every ~30 s to ~9 min depending on
-# the date (up to ~3,200/day, ~1 GB uncompressed). Planned work changes on a scale
-# of hours, so we keep the first snapshot in each 10-minute window (<=144/day).
+# Thinning: the archive has up to ~3,200 alerts snapshots/day (~1 GB uncompressed)
+# in Jan-Mar 2026 and ~150-450/day from April on. The archiver drops snapshots
+# identical to the previous one, so a gap between files means the feed didn't
+# change, and each file's state holds until the next file. Planned work changes
+# on a scale of hours, so we keep the LAST snapshot in each 10-minute window
+# (<=144/day): that's the state that persists into the next window.
 #
 # Output: data/raw/alerts/alerts_YYYY-MM-DD.tar.xz, plus a log of each day.
 #
@@ -71,12 +74,12 @@ download_day <- function(date) {
     return(invisible("empty"))
   }
 
-  # 3. Keep the first snapshot in each 10-minute window.
+  # 3. Keep the last snapshot in each 10-minute window.
   # File names look like nycsubway_alerts_20260115T053118.031Z_dw47csdwffoy.gtfsrt
   stamp <- as.POSIXct(sub("^nycsubway_alerts_(\\d{8}T\\d{6}).*", "\\1", files),
                       format = "%Y%m%dT%H%M%S", tz = "UTC")
   window <- floor(as.numeric(stamp) / (snapshot_minutes * 60))
-  keep <- files[!duplicated(window)]
+  keep <- files[!duplicated(window, fromLast = TRUE)]
 
   # 4. Repack the kept snapshots. Write to a temp name, then rename, so an
   # interrupted run never leaves a partial file that looks complete.
