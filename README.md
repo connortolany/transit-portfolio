@@ -27,5 +27,6 @@ quarto publish gh-pages          # render and publish to GitHub Pages
 
 ## Data
 
+- MTA subway alerts feed (GTFS-realtime), archived daily by [subwaydata.nyc](https://subwaydata.nyc/programmatic-access). The source for planned service interruptions, which the MTA doesn't publish as an open dataset. `pipeline/02_download_alerts.R` keeps one snapshot per 10 minutes.
 - [MTA Subway End-to-End Running Times: Beginning 2019](https://data.ny.gov/Transportation/MTA-Subway-End-to-End-Running-Times-Beginning-2019/sp9g-mzjh)
 - [MTA static subway GTFS](https://rrgtfsfeeds.s3.amazonaws.com/gtfs_subway.zip)
