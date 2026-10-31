@@ -31,7 +31,6 @@ out_dir <- here("data", "raw", "alerts")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 log_file <- file.path(out_dir, "_download_log.csv")
 
-options(timeout = 600)
 snapshot_minutes <- 10
 
 log_day <- function(date, status, n_snapshots = NA, n_kept = NA) {
@@ -52,11 +51,13 @@ download_day <- function(date) {
   # 1. Download the full day of raw feeds
   url <- sprintf("https://subwaydata.nyc/data/subwaydatanyc_%s_gtfsrt.tar.xz", date)
   archive <- file.path(work, "day.tar.xz")
-  ok <- tryCatch({
-    download.file(url, archive, mode = "wb", quiet = TRUE)
-    TRUE
-  }, error = function(e) FALSE)
-  if (!ok) {
+  # curl rather than download.file: it follows the redirect, retries transient
+  # errors, and gives up only if the transfer stalls (<50 KB/s for a minute),
+  # instead of a fixed time cap that slow-but-working downloads can hit.
+  status <- system2("curl", c("-fsSL", "--retry", "3", "--retry-delay", "15",
+                              "--speed-limit", "50000", "--speed-time", "60",
+                              "-o", shQuote(archive), shQuote(url)))
+  if (status != 0) {
     message(date, ": download failed")
     log_day(date, "download_failed")
     return(invisible("failed"))
